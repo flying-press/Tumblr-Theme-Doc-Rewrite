@@ -33,16 +33,20 @@
   > The HTML-safe title of your blog.
   
   1. `{Title}` by itself is usually used in the `<title>` tag of the theme. If the current page is the blog's main page (Example: blog.tumblr.com), the title comes from the **Title** section of the Theme Editor page. Filling in that section then changes the browser('s tab) label to be what is entered in that section.
-  	* `{Title}` elsewhere is what is entered in the **Title** section to be displayed somewhere on the page in sight.
-  	For example, `<h1>{Title}</h1>` at the top of the page to title the blog's home page.
+  	
+		`{Title}` elsewhere is what is entered in the **Title** section to be displayed somewhere on the page in sight. For example, `<h1>{Title}</h1>` at the top of the page to title the blog's home page.
   	
   2. `{Title}` used in the Text and Chat post types will append the title of the blog's page *if* `{block:Title} {Title} {/block:Title}` exists for the post types.
-  	* Appending will occur if something like `<title>{Title} {block:PostTitle} - {PostTitle} {/block:PostTitle}</title>` exists. The resulting rendering, by that example, would be "Witty Blog Title - omg i cannot LITCHILLY believe it!!!".  
   	
-  	* If `{block:PostTitle} - {PostTitle} {/block:PostTitle}` does not exist in the `<title>` tag, then only the tile of the blog will be in the page's label, even if a Text or Chat post has a title.
-  	To have the Text and Chat post types' titles to be a part of the post page's title:
+		Appending will occur if something like `<title>{Title} {block:PostTitle} - {PostTitle} {/block:PostTitle}</title>` exists. The resulting rendering, by that example, would be "Witty Blog Title - omg i cannot LITCHILLY believe it!!!".  
+  	
+		If `{block:PostTitle} - {PostTitle} {/block:PostTitle}` does not exist in the `<title>` tag, then only the title of the blog will be in the page's label, even if a Text or Chat post has been explicitly given a title during creation.
+  	
+		To have the Text and Chat post types' titles to be a part of the post page's title:
+		
   		1. `{block:Title} {Title} {/block:Title}` must exist for the Text and Chat post types.
-  		Example:
+  		
+			Example:
   		```
   		{block:Text}
   			{block:Title}
@@ -51,6 +55,7 @@
   			<span id="post-body">{Body}</span>
   		{/block:Text}
   		```
+			
   		2. `{block:PostTitle} {PostTitle} {/block:PostTitle}` must exist in the `<title>` tag.
   
   ***HTML elements in the Title section will not be rendered, as given by "HTML-safe".***
